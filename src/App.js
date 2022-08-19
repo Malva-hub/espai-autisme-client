@@ -1,23 +1,52 @@
-import logo from './logo.svg';
+
 import './App.css';
+
+import {Routes, Route} from "react-router-dom"
+
+import NavbarHome from './components/NavbarHome';
+import Home from "./pages/Home";
+import Aboutus from "./pages/Aboutus";
+import Event from "./pages/events/Events";
+import Member from "./pages/Member";
+import Colaborators from "./pages/Colaborators";
+import Signup from "./pages/auth/Signup";
+import Login from "./pages/auth/Login";
+import Error from "./pages/Error";
+import NotFound from "./pages/NotFound";
+import Admin from "./pages/profile/Admin";
+import Myprofile from "./pages/profile/Myprofile";
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavbarHome/>
+
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/aboutus" element={<Aboutus/>}/>
+
+        {/* ponerle que solo puede entrar admin  */}
+        <Route path="/events" element={<Event/>}/>   
+        <Route path="/admin" element={<Admin/>}/>
+
+        <Route path="/member" element={<Member/>}/>
+        <Route path="/colaborators" element={<Colaborators/>}/>
+        <Route path="/myprofile" element={<Myprofile/>}/>
+        <Route path="/signup" element={<Signup/>}/>
+        <Route path="/login" element={<Login/>}/>
+        
+
+        {/* componentes para error handling */}
+        <Route path="/error" element={<Error/>}/>
+        <Route path="/*" element={<NotFound/>}/>
+
+
+
+
+      </Routes>
+
     </div>
   );
 }
