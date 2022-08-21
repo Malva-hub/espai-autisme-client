@@ -15,6 +15,7 @@ import Error from "./pages/Error";
 import NotFound from "./pages/NotFound";
 import Admin from "./pages/profile/Admin";
 import Myprofile from "./pages/profile/Myprofile";
+import IsPrivate from './components/IsPrivate';
 
 
 
@@ -26,14 +27,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/aboutus" element={<Aboutus/>}/>
+        
+        <Route path="/events" element={<Event/>}/> 
 
-        {/* ponerle que solo puede entrar admin  */}
-        <Route path="/events" element={<Event/>}/>   
-        <Route path="/admin" element={<Admin/>}/>
+        {/* ponerle que solo puede entrar admin  */}  
+        <Route path="/admin" element={<IsPrivate><Admin/></IsPrivate>}/>
 
         <Route path="/member" element={<Member/>}/>
         <Route path="/colaborators" element={<Colaborators/>}/>
-        <Route path="/myprofile" element={<Myprofile/>}/>
+        <Route path="/myprofile" element={<IsPrivate><Myprofile/></IsPrivate>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/login" element={<Login/>}/>
         

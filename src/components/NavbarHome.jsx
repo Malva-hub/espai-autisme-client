@@ -30,10 +30,11 @@ function NavbarHome() {
                   <Nav.Link href="events">Programación</Nav.Link>
                   <Nav.Link href="member">Hazte Socio</Nav.Link>
                   <Nav.Link href="colaborators">Centros Colaboradores</Nav.Link>
+                  <Nav.Link href="myprofile">Mi perfil</Nav.Link>
                 </Nav>
               </Container>
               <Container> 
-                <button onClick={handleLogout}>Logout</button>
+                <button onClick={handleLogout}>Cerrar Sesión</button>
               </Container>
              
               </Navbar>
