@@ -1,15 +1,47 @@
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
+import { contactService } from "../services/contact.services.js";
 
 function Member() {
   const navigate = useNavigate()
 
- /*
-  username,
-  firstname,
-  secondname,
-  email,
-  telephone*/
+  const [ username, setUsername] = useState("")
+  const [ firstname, setFirstname] = useState("")
+  const [ secondname, setSecondname] = useState("")
+  const [ email, setEmail] = useState("")
+  const [ telephone, setTelephone] = useState()
+
+  const handleUsernameChange = (event) => setUsername(event.target.value)
+
+  const handleFirstChange = (event) => setFirstname(event.target.value)
+
+  const handleSecondChange = (event) => setSecondname(event.target.value)
+
+  const handleEmailChange = (event) => setEmail(event.target.value)
+
+  const handleTelephoneChange = (event) => setTelephone(event.target.value)
+
+  const handleSubmit = async (event) => {
+    
+      const newContact = {
+        username: username,
+        firstname: firstname,
+        secondname: secondname,
+        email: email,
+        telephone: telephone
+      }
+
+      try {
+        const response = await contactService(newContact);
+        console.log(response.data);
+
+        navigate("/");
+      } catch (error) {
+        
+          navigate("/error");
+        }
+      }
+    
 
 
   return (
@@ -29,10 +61,45 @@ function Member() {
         espectro autista, a sus familiares y cuidadores.
       </p>
       <form>
-        <label htmlFor="username">Nombre</label>
-        <input type="text" />
+      <label htmlFor="username">Nombre:</label>
+        <input
+          type="text"
+          name="username"
+          onChange={handleUsernameChange}
+          value={username}
+        />
+        <label htmlFor="firstname">Primer Apellido:</label>
+        <input
+          type="text"
+          name="firstname"
+          onChange={handleFirstChange}
+          value={firstname}
+        />
+        <label htmlFor="secondname">Segundo Apellido:</label>
+        <input
+          type="text"
+          name="secondname"
+          onChange={handleSecondChange}
+          value={secondname}
+        />
+         <label htmlFor="email">Email:</label>
+        <input
+          type="text"
+          name="email"
+          onChange={handleEmailChange}
+          value={email}
+        />
+            <label htmlFor="telephone">Teléfono:</label>
+        <input
+          type="number"
+          name="telephone"
+          onChange={handleTelephoneChange}
+          value={telephone}
+        />
+
       </form>
-      <button>Hacerme Socio</button>
+      <button onClick={handleSubmit}>Hacerme Socio</button>
+      <p>Nos pondremos en contacto con usted para </p>
     </div>
   );
 }
