@@ -11,7 +11,7 @@ function AuthWrapper(props) {
 
   useEffect(() => {
     authenticateUser();
-  });
+  }, []);
 
   const authenticateUser = async () => {
     try {

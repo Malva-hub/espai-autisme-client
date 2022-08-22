@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import Admin from "./pages/profile/Admin";
 import Myprofile from "./pages/profile/Myprofile";
 import IsPrivate from './components/IsPrivate';
+import UsServices from './pages/UsServices';
 
 
 
@@ -26,6 +27,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home/>}/>
+        <Route path="/home" element={<Home/>}/>
         <Route path="/aboutus" element={<Aboutus/>}/>
         
         <Route path="/events" element={<Event/>}/> 
@@ -35,6 +37,7 @@ function App() {
 
         <Route path="/member" element={<Member/>}/>
         <Route path="/colaborators" element={<Colaborators/>}/>
+        <Route path="/usservices" element={<UsServices/>}/>
         <Route path="/myprofile" element={<IsPrivate><Myprofile/></IsPrivate>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/login" element={<Login/>}/>

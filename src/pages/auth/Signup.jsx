@@ -14,9 +14,7 @@ function Signup() {
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
-  const handleSignup = async (
-    e
-  ) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     const user = {
       username: username,

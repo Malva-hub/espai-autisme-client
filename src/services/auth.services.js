@@ -9,7 +9,7 @@ const loginService = (user) => {
 };
 
 const verifyService = () => {
-  return service.get("/auth/verify", )
+  return service.get("/auth/verify")
 };
 
 export { signupService, loginService, verifyService };
