@@ -1,35 +1,81 @@
 import Accordion from 'react-bootstrap/Accordion';
-import image1 from "../../assets/logo192.png"
+
+
+import {useEffect, useState} from "react";
+import { useNavigate } from 'react-router-dom';
+import {eventService} from "../../services/event.services";
+import ViewComment from '../../components/ViewComment';
+
 
 
 function Events() {
 
-  //todo TRAER EVENTOS DE BASE DE DATOS
+  const navigate = useNavigate()
+
+  const [allEvents, setAllEvents] = useState([""])
+
+  const [isFetching, setIsFetching] = useState("")
+
+  useEffect (() => {
+    getAllEvents()
+  },[])
+
+ 
+
+  const getAllEvents = async () => {
+    try{
+      const response = await eventService()
+      setAllEvents(response.data)
+      setIsFetching(false)
+    }catch(error){
+      navigate("/error")
+    }
+  }
 
 
+
+if(isFetching === true){
+  return <h3>...Loading</h3>
+}
 
 
   return (
-    <Accordion defaultActiveKey="0">
-      <Accordion.Item eventKey="0">
-        <Accordion.Header>Evento 1</Accordion.Header>
-        <Accordion.Body>
-          {/* Aqui va el evento */}
-          <img src={image1} alt="image1" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum. </p>
-          <button>Apuntarme</button>
-          {/* Aquí van los comentarios del evento */}
-          <p>Comentarios</p>
-        </Accordion.Body>
-      </Accordion.Item>
-     </Accordion>
+    <div> 
+      <h1>Listado de Eventos</h1>
+       {allEvents.map((eachEvent) => {
+         return (
+           <>         
+            <ViewComment idevent={eachEvent.id}/>
+           <Accordion defaultActiveKey="0">
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>{eachEvent.title}</Accordion.Header>
+              <Accordion.Body>
+                <img src={eachEvent.image} alt="image1" />
+                <p>{eachEvent.description}</p>
+                <p>Lugar: {eachEvent.address}</p>
+                <p>{eachEvent.price} €</p>
+                <button>Apuntarme</button>
+                
+                <p>Comentarios</p>
+
+              </Accordion.Body>
+            </Accordion.Item>
+            </Accordion> 
+           </>
+      
+
+        
+         )
+       })}  
+    
+    </div>
+    
+
+  
+    
   )
 }
 
 export default Events
+
+
