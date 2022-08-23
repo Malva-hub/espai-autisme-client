@@ -35,7 +35,7 @@ function AddEvent() {
         const response = await addEventService(newEvent);
         console.log(response.data);
 
-        navigate("/event");
+        navigate("/events");
       } catch (error) {
         
           navigate("/error");
