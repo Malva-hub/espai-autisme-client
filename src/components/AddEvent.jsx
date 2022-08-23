@@ -69,7 +69,7 @@ function AddEvent() {
           onChange={handleAddressChange}
           value={address}
         />
-        {/* PENDIENTE PONER CLAUDINARY */}
+        {/* PENDIENTE PONER CLOUDINARY */}
          <label htmlFor="image">Imagen:</label>
         <input
           type="text"
