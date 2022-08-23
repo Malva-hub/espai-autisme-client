@@ -55,7 +55,7 @@ if(isFetching === true){
                 <p>{eachEvent.description}</p>
                 <p>Lugar: {eachEvent.address}</p>
                 <p>{eachEvent.price} €</p>
-                <button>Apuntarme</button>
+                <button >Apuntarme</button>
                 
                 <p>Comentarios</p>
                 <ViewComment idevent={eachEvent._id}/>
