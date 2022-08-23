@@ -4,14 +4,18 @@ import { Navigate } from "react-router-dom";
 
 function IsAdmin() {
 
-    const { isUserActive } = useContext(AuthContext);
+  //   const { isUserActive } = useContext(AuthContext);
 
-      // isUserActive === true && req.payload === "admin"
-  if (isUserActive === true ) {
-    //return props.children;
-  } else {
-    return <Navigate to="/home"/>;
-  }
+  //     // isUserActive === true && req.payload === "admin"
+  // if (isUserActive === true ) {
+  //   //return props.children;
+  // } else {
+  //   return <Navigate to="/home"/>;
+  // }
+
+  return
+
+
 }
 
 

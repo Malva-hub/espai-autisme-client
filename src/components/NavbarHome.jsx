@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import {useContext} from "react";
 import {AuthContext} from "../context/auth.context";
 import {useNavigate} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 function NavbarHome() {
 
@@ -24,13 +25,13 @@ function NavbarHome() {
           <>
             <Navbar bg="warning" variant="light"> 
            <Container>
-                <Navbar.Brand href="home">Inicio</Navbar.Brand>
+                <Navbar.Brand as={NavLink} to="/home">Inicio</Navbar.Brand>
                 <Nav className="me-auto">
-                  <Nav.Link href="aboutus">Quienes Somos</Nav.Link>
-                  <Nav.Link href="events">Programación</Nav.Link>
-                  <Nav.Link href="member">Hazte Socio</Nav.Link>
-                  <Nav.Link href="colaborators">Centros Colaboradores</Nav.Link>
-                  <Nav.Link href="myprofile">Mi perfil</Nav.Link>
+                  <Nav.Link as={NavLink} to="/aboutus">Quienes Somos</Nav.Link>
+                  <Nav.Link as={NavLink} to="/events">Programación</Nav.Link>
+                  <Nav.Link as={NavLink} to="/member">Hazte Socio</Nav.Link>
+                  <Nav.Link as={NavLink} to="/colaborators">Centros Colaboradores</Nav.Link>
+                  <Nav.Link as={NavLink} to="/myprofile">Mi perfil</Nav.Link>
                 </Nav>
               </Container>
               <Container> 
@@ -52,17 +53,17 @@ function NavbarHome() {
           <>
             <Navbar bg="warning" variant="light">
             <Container>
-                <Navbar.Brand href="home">Inicio</Navbar.Brand>
+                <Navbar.Brand as={NavLink} to="/home">Inicio</Navbar.Brand>
                 <Nav className="me-auto">
-                  <Nav.Link href="aboutus">Quienes Somos</Nav.Link>
-                  <Nav.Link href="events">Programación</Nav.Link>
-                  <Nav.Link href="member">Hazte Socio</Nav.Link>
-                  <Nav.Link href="colaborators">Centros Colaboradores</Nav.Link>
+                  <Nav.Link as={NavLink} to="/aboutus">Quienes Somos</Nav.Link>
+                  <Nav.Link as={NavLink} to="/events">Programación</Nav.Link>
+                  <Nav.Link as={NavLink} to="/member">Hazte Socio</Nav.Link>
+                  <Nav.Link as={NavLink} to="/colaborators">Centros Colaboradores</Nav.Link>
                 </Nav>
               </Container>
               <Container>
-                  <Nav.Link href="login">Acceder</Nav.Link>
-                  <Nav.Link href="signup">Registrarse</Nav.Link>
+                  <Nav.Link as={NavLink} to="/login">Acceder</Nav.Link>
+                  <Nav.Link as={NavLink} to="/signup">Registrarse</Nav.Link>
               </Container>
             </Navbar>
           </>

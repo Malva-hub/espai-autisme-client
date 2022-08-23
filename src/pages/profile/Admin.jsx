@@ -1,8 +1,22 @@
 import React from 'react'
+import AddEvent from '../../components/AddEvent'
+import AllContacts from '../../components/AllContacts'
 
 function Admin() {
+
+
+
+
+
+
   return (
-    <div>Admin</div>
+    <div>
+
+      <AddEvent/>
+      <AllContacts/>
+    
+    
+    </div>
   )
 }
 

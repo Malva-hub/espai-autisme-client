@@ -1,5 +1,5 @@
 import Accordion from 'react-bootstrap/Accordion';
-
+import React from "react"
 
 import {useEffect, useState} from "react";
 import { useNavigate } from 'react-router-dom';
@@ -12,9 +12,9 @@ function Events() {
 
   const navigate = useNavigate()
 
-  const [allEvents, setAllEvents] = useState([""])
+  const [allEvents, setAllEvents] = useState([])
 
-  const [isFetching, setIsFetching] = useState("")
+  const [isFetching, setIsFetching] = useState(true)
 
   useEffect (() => {
     getAllEvents()
@@ -26,6 +26,7 @@ function Events() {
     try{
       const response = await eventService()
       setAllEvents(response.data)
+      console.log(response.data)
       setIsFetching(false)
     }catch(error){
       navigate("/error")
@@ -38,14 +39,14 @@ if(isFetching === true){
   return <h3>...Loading</h3>
 }
 
-
   return (
     <div> 
       <h1>Listado de Eventos</h1>
        {allEvents.map((eachEvent) => {
+         
          return (
-           <>         
-            <ViewComment idevent={eachEvent.id}/>
+           <React.Fragment key={eachEvent._id}>         
+            
            <Accordion defaultActiveKey="0">
             <Accordion.Item eventKey="0">
               <Accordion.Header>{eachEvent.title}</Accordion.Header>
@@ -57,11 +58,11 @@ if(isFetching === true){
                 <button>Apuntarme</button>
                 
                 <p>Comentarios</p>
-
+                <ViewComment idevent={eachEvent._id}/>
               </Accordion.Body>
             </Accordion.Item>
             </Accordion> 
-           </>
+           </React.Fragment>
       
 
         

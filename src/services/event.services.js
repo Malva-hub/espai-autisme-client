@@ -4,6 +4,11 @@ const eventService = () => {
     return service.get("/events")
   };
 
+const addEventService = (newEvent) => {
+  return service.post("/events", newEvent)
+};
+
   export{
-    eventService
+    eventService,
+    addEventService
  }

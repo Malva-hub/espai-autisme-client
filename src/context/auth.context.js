@@ -2,6 +2,8 @@ import { createContext, useEffect, useState } from "react";
 
 import { verifyService } from "../services/auth.services";
 
+import Spinner from 'react-bootstrap/Spinner';
+
 const AuthContext = createContext();
 
 function AuthWrapper(props) {
@@ -33,7 +35,11 @@ function AuthWrapper(props) {
   };
 
   if (isFetching === true) {
-    return <h3>...Is Validating User</h3>;
+    return (
+      <div>
+          <Spinner animation="border" variant="info" /> <h3> ...Is Validating User</h3>;
+
+      </div> )
   }
 
   return (
