@@ -17,7 +17,7 @@ import Admin from "./pages/profile/Admin";
 import Myprofile from "./pages/profile/Myprofile";
 import IsPrivate from './components/IsPrivate';
 import UsServices from './pages/UsServices';
-
+import IsAdmin from './components/IsAdmin';
 
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
         <Route path="/events" element={<Event/>}/> 
 
         {/* ponerle que solo puede entrar admin  */}  
-        <Route path="/admin" element={<IsPrivate><Admin/></IsPrivate>}/>
+        <Route path="/admin" element={<IsAdmin><Admin/></IsAdmin>}/>
 
         <Route path="/member" element={<Member/>}/>
         <Route path="/colaborators" element={<Colaborators/>}/>

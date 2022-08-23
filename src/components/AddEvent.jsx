@@ -22,6 +22,7 @@ function AddEvent() {
   const handlePriceChange = (event) => setPrice(event.target.value)
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
     
       const newEvent = {
         title,

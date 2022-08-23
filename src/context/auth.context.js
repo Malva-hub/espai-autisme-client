@@ -8,6 +8,7 @@ const AuthContext = createContext();
 
 function AuthWrapper(props) {
   const [isUserActive, setIsUserActive] = useState(false);
+ 
   const [user, setUser] = useState(null);
   const [isFetching, setIsFetching] = useState(true);
 
@@ -32,6 +33,7 @@ function AuthWrapper(props) {
     isUserActive,
     user,
     authenticateUser,
+    
   };
 
   if (isFetching === true) {
