@@ -46,7 +46,7 @@ function Myprofile() {
     try{
       const response = await listEventService()
       setMyListEvents(response.data)
-      console.log("HOLA", response.data)
+      
       setIsFetching(false)
     }catch(error){
       navigate("/error")
@@ -75,13 +75,13 @@ const handleDelete = async () => {
 
 
   return (
-    <div>
+    <div >
     
-    <h3>Mi Perfil</h3>
+    <h3 key={myProfile._id}>Mi Perfil</h3>
       <p>Nombre: {myProfile.username} </p>
       <p>Email: {myProfile.email}</p>
     <button onClick={toggleFormShowing}>{isFormShowing === false ? "Editar Perfil" : "Ocultar Formulario"} </button>
-    {isFormShowing === true ? <EditProfile getMyProfile={getMyProfile}/> : null }
+    {isFormShowing === true ? <EditProfile  setIsFormShowing={setIsFormShowing} getMyProfile={getMyProfile}/> : null }
 
     <button onClick={handleDelete}>Borrar Perfil</button>
 
@@ -89,7 +89,7 @@ const handleDelete = async () => {
     <h4>Eventos a los que voy a asistir</h4>
     {myListEvents.map((eachList) => {
       return ( 
-        <li> 
+        <li key={eachList._id}> 
           {eachList.title}
         </li>
       )  

@@ -57,16 +57,21 @@ const toggleFormShowing = () =>{
        {allEvents.map((eachEvent) => {
          
          return (
-            <li> 
+            <li key={eachEvent._id}> 
                 {eachEvent.title} 
                 <button onClick={toggleFormShowing}>{isFormShowing === false ? "Editar Evento" : "Ocultar Formulario"} </button>
                 {isFormShowing === true ? <EditEvent idevent={eachEvent._id} getAllEvents={getAllEvents}/> : null }
                 
                 <button onClick={()=> handleDeleteEvent(eachEvent._id)}>Borrar</button>
+
+                
             </li>
            
          
          )
+         
+         
+
        })}  
     </div>
   )

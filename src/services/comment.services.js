@@ -8,4 +8,12 @@ const commentEventService = (idevent) => {
     return service.get(`/comment/${idevent}`)
   };
 
-export {  newCommentService, commentEventService };
+  const allCommentService = () => {
+    return service.get("/comment")
+  };
+
+  const deleteCommentService = (idComment) => {
+    return service.delete(`/comment/${idComment}`)
+  };
+
+export {  newCommentService, commentEventService, deleteCommentService, allCommentService };

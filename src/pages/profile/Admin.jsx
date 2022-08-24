@@ -2,6 +2,7 @@ import React from 'react'
 import AddEvent from '../../components/AddEvent'
 import AllContacts from '../../components/AllContacts'
 import ListEvents from "../../components/ListEvents"
+import ListComments from '../../components/ListComments'
 
 function Admin() {
 
@@ -13,6 +14,7 @@ function Admin() {
       <AddEvent/>
       <AllContacts/>
       <ListEvents/>
+      <ListComments/>
     
     
     </div>

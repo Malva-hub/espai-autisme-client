@@ -25,6 +25,7 @@ function EditProfile(props) {
       setEmail("");
       setUsername("");
       props.getMyProfile();
+      props.setIsFormShowing(false)
     } catch (error) {
       navigate("/error");
     }
