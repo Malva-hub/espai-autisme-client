@@ -11,7 +11,7 @@ function Myprofile() {
 
   const navigate = useNavigate()
 
-  const { authenticateUser } = useContext(AuthContext);
+  const { isUserActive } = useContext(AuthContext);
 
   const [myProfile, setMyProfile] = useState([])
 
@@ -50,27 +50,31 @@ const handleDelete = async () => {
   try{
     await deleteProfileService()
     //todo se lo he puesto para que salga de estar 
-    //authenticateUser() no sirve
+    isUserActive(false)
     navigate("/home")
   }catch(error){
     navigate("/error")
   }
+
 }
+
+
 
   return (
     <div>
     
-    <h3>Myprofile</h3>
+    <h3>Mi Perfil</h3>
       <p>Nombre: {myProfile.username} </p>
       <p>Email: {myProfile.email}</p>
     <button onClick={toggleFormShowing}>{isFormShowing === false ? "Editar Perfil" : "Ocultar Formulario"} </button>
-    {isFormShowing === true ? <EditProfile/> : null }
+    {isFormShowing === true ? <EditProfile getMyProfile={getMyProfile}/> : null }
 
     <button onClick={handleDelete}>Borrar Perfil</button>
 
     {/* Listado de eventos voy a asistir */}
-
+    <h4>Eventos a los que voy a asistir</h4>
     
+
 
     </div>
     

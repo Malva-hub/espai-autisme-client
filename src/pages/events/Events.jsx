@@ -39,6 +39,12 @@ if(isFetching === true){
   return <h3>...Loading</h3>
 }
 
+const handleAddAtendees = (idEvent) => {
+  //quiero añadir al modelo evento id del usuario activo en la propiedad attendees 
+   
+
+}
+
   return (
     <div> 
       <h1>Listado de Eventos</h1>
@@ -55,7 +61,15 @@ if(isFetching === true){
                 <p>{eachEvent.description}</p>
                 <p>Lugar: {eachEvent.address}</p>
                 <p>{eachEvent.price} €</p>
-                <button >Apuntarme</button>
+                <h3>Personas que van a asistir</h3>
+                <p>{eachEvent.attendees.map((eachAttenddees) => {
+                  return (
+                    <div>
+                        {eachAttenddees}
+                    </div>
+                  )
+                })}</p>
+                <button onClick={handleAddAtendees}>Apuntarme</button>
                 
                 <p>Comentarios</p>
                 <ViewComment idevent={eachEvent._id}/>

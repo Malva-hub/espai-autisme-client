@@ -30,7 +30,7 @@ function NavbarHome() {
                   <Nav.Link as={NavLink} to="/aboutus">Quienes Somos</Nav.Link>
                   <Nav.Link as={NavLink} to="/events">Programación</Nav.Link>
                   <Nav.Link as={NavLink} to="/member">Hazte Socio</Nav.Link>
-                  <Nav.Link as={NavLink} to="/colaborators">Centros Colaboradores</Nav.Link>
+                  <Nav.Link as={NavLink} to="/usservices">Nuestros Servicios</Nav.Link>
                   <Nav.Link as={NavLink} to="/myprofile">Mi perfil</Nav.Link>
                 </Nav>
               </Container>

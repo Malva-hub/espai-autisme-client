@@ -33,7 +33,7 @@ function App() {
         <Route path="/events" element={<Event/>}/> 
 
         {/* ponerle que solo puede entrar admin  */}  
-        <Route path="/admin" element={<IsAdmin><Admin/></IsAdmin>}/>
+        <Route path="/admin" element={<Admin/>}/>
 
         <Route path="/member" element={<Member/>}/>
         <Route path="/colaborators" element={<Colaborators/>}/>

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { editProfileService } from "../services/user.services";
 
-function EditProfile() {
+function EditProfile(props) {
 
     const navigate = useNavigate();
 
@@ -28,8 +28,8 @@ function EditProfile() {
         console.log(response.data);
         setEmail("")
         setUsername("")
-        //todo AQUÍ LE TENGO QUE PONER QUE VAYA A /PROFILE O NO HACE FALTA PONER NADA
-        navigate("/myprofile");
+        props.getMyProfile()
+       
       } catch (error) {
         
           navigate("/error");
