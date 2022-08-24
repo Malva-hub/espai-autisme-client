@@ -6,6 +6,7 @@ import EditProfile from "../../components/EditProfile";
 import {deleteProfileService, myProfileService} from "../../services/user.services";
 
 import {AuthContext} from "../../context/auth.context"
+import { listEventService } from "../../services/event.services";
 
 function Myprofile() {
 
@@ -14,6 +15,8 @@ function Myprofile() {
   const { isUserActive } = useContext(AuthContext);
 
   const [myProfile, setMyProfile] = useState([])
+
+  const [myListEvents, setMyListEvents] = useState([])
 
   const [isFetching, setIsFetching] = useState(true)
 
@@ -24,6 +27,9 @@ function Myprofile() {
   },[])
 
  
+  useEffect(() => {
+    getMyEvents()
+  }, [])
 
   const getMyProfile = async () => {
     try{
@@ -36,7 +42,15 @@ function Myprofile() {
     }
   }
 
-
+  const getMyEvents = async () => {
+    try{
+      const response = await listEventService()
+      setMyListEvents(response.data)
+      setIsFetching(false)
+    }catch(error){
+      navigate("/error")
+    }
+  }
 
 if(isFetching === true){
   return <h3>...Loading</h3>
@@ -49,7 +63,6 @@ const toggleFormShowing = () =>{
 const handleDelete = async () => {
   try{
     await deleteProfileService()
-    //todo se lo he puesto para que salga de estar 
     isUserActive(false)
     navigate("/home")
   }catch(error){
@@ -71,9 +84,9 @@ const handleDelete = async () => {
 
     <button onClick={handleDelete}>Borrar Perfil</button>
 
-    {/* Listado de eventos voy a asistir */}
-    <h4>Eventos a los que voy a asistir</h4>
     
+    <h4>Eventos a los que voy a asistir</h4>
+    {myListEvents.map}
 
 
     </div>

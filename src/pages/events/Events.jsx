@@ -3,7 +3,7 @@ import React from "react"
 
 import {useEffect, useState} from "react";
 import { useNavigate } from 'react-router-dom';
-import {eventService} from "../../services/event.services";
+import {addAttendeesService, eventService} from "../../services/event.services";
 import ViewComment from '../../components/ViewComment';
 
 
@@ -39,9 +39,14 @@ if(isFetching === true){
   return <h3>...Loading</h3>
 }
 
-const handleAddAtendees = (idEvent) => {
-  //quiero añadir al modelo evento id del usuario activo en la propiedad attendees 
-   
+const handleAddAtendees = async (idEvent) => {
+  
+  try{
+    await addAttendeesService(idEvent)
+    getAllEvents()
+  }catch(error){
+    navigate("/error")
+  }
 
 }
 
@@ -62,14 +67,14 @@ const handleAddAtendees = (idEvent) => {
                 <p>Lugar: {eachEvent.address}</p>
                 <p>{eachEvent.price} €</p>
                 <h3>Personas que van a asistir</h3>
-                <p>{eachEvent.attendees.map((eachAttenddees) => {
+                {eachEvent.attendees.map((eachAttenddees) => {
                   return (
-                    <div>
-                        {eachAttenddees}
-                    </div>
+                    <li key={eachAttenddees._id}>
+                        {eachAttenddees.username}
+                    </li>
                   )
-                })}</p>
-                <button onClick={handleAddAtendees}>Apuntarme</button>
+                })}
+                <button onClick={() => handleAddAtendees(eachEvent._id)}>Apuntarme</button>
                 
                 <p>Comentarios</p>
                 <ViewComment idevent={eachEvent._id}/>

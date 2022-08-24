@@ -8,7 +8,17 @@ const addEventService = (newEvent) => {
   return service.post("/events", newEvent)
 };
 
+const addAttendeesService = (idEvent) => {
+  return service.patch(`/events/${idEvent}/attendees`)
+};
+
+const listEventService = () => {
+  return service.post("/events/attendees")
+};
+
   export{
     eventService,
-    addEventService
+    addEventService,
+    addAttendeesService,
+    listEventService
  }
