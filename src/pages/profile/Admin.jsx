@@ -1,11 +1,9 @@
 import React from 'react'
 import AddEvent from '../../components/AddEvent'
 import AllContacts from '../../components/AllContacts'
+import ListEvents from "../../components/ListEvents"
 
 function Admin() {
-
-  
-
 
 
 
@@ -14,6 +12,7 @@ function Admin() {
 
       <AddEvent/>
       <AllContacts/>
+      <ListEvents/>
     
     
     </div>

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { addEventService } from "../services/event.services";
 
+
 function AddEvent() {
   const navigate = useNavigate();
 
@@ -88,6 +89,7 @@ function AddEvent() {
 
       </form>
       <button onClick={handleSubmit}>Añadir Evento</button>
+    
     </div>
   );
 }

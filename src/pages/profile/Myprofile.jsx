@@ -35,7 +35,7 @@ function Myprofile() {
     try{
       const response = await myProfileService()
       setMyProfile(response.data)
-      console.log(response.data)
+      
       setIsFetching(false)
     }catch(error){
       navigate("/error")
@@ -46,6 +46,7 @@ function Myprofile() {
     try{
       const response = await listEventService()
       setMyListEvents(response.data)
+      console.log("HOLA", response.data)
       setIsFetching(false)
     }catch(error){
       navigate("/error")
@@ -86,7 +87,15 @@ const handleDelete = async () => {
 
     
     <h4>Eventos a los que voy a asistir</h4>
-    {myListEvents.map}
+    {myListEvents.map((eachList) => {
+      return ( 
+        <li> 
+          {eachList.title}
+        </li>
+      )  
+      
+     
+    })}
 
 
     </div>

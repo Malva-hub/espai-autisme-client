@@ -13,12 +13,22 @@ const addAttendeesService = (idEvent) => {
 };
 
 const listEventService = () => {
-  return service.post("/events/attendees")
+  return service.get("/events/attendees/my-profile")
+};
+
+const editEventService = (idEvent, event) => {
+  return service.patch(`/events/${idEvent}`, event)
+};
+
+const deleteEventService = (idEvent) => {
+  return service.delete(`/events/${idEvent}`)
 };
 
   export{
     eventService,
     addEventService,
     addAttendeesService,
-    listEventService
+    listEventService,
+    editEventService,
+    deleteEventService
  }

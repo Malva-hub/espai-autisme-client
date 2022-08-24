@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import Aboutus from "./pages/Aboutus";
 import Event from "./pages/events/Events";
 import Member from "./pages/Member";
-import Colaborators from "./pages/Colaborators";
+
 import Signup from "./pages/auth/Signup";
 import Login from "./pages/auth/Login";
 import Error from "./pages/Error";
@@ -36,7 +36,7 @@ function App() {
         <Route path="/admin" element={<Admin/>}/>
 
         <Route path="/member" element={<Member/>}/>
-        <Route path="/colaborators" element={<Colaborators/>}/>
+        
         <Route path="/usservices" element={<UsServices/>}/>
         <Route path="/myprofile" element={<IsPrivate><Myprofile/></IsPrivate>}/>
         <Route path="/signup" element={<Signup/>}/>
