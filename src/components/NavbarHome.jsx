@@ -11,7 +11,7 @@ function NavbarHome() {
 
   const navigate = useNavigate()
 
-  const {isUserActive, authenticateUser } = useContext(AuthContext)
+  const {isUserActive, authenticateUser, user } = useContext(AuthContext)
 
   const handleLogout = () => {
     localStorage.removeItem("authToken")
@@ -19,11 +19,41 @@ function NavbarHome() {
     navigate("/")
   }
 
-  if(isUserActive === true){
+  if(isUserActive === true && user.role === "admin"){
+
     return (
       <div>
           <>
-            <Navbar bg="warning" variant="light"> 
+           <Navbar bg="warning" variant="light" > 
+           <Container>
+                <Navbar.Brand as={NavLink} to="/home">Inicio</Navbar.Brand>
+                <Nav className="me-auto">
+                  <Nav.Link as={NavLink} to="/aboutus">Quienes Somos</Nav.Link>
+                  <Nav.Link as={NavLink} to="/events">Programación</Nav.Link>
+                  <Nav.Link as={NavLink} to="/member">Hazte Socio</Nav.Link>
+                  <Nav.Link as={NavLink} to="/usservices">Nuestros Servicios</Nav.Link>
+                  <Nav.Link as={NavLink} to="/admin">Perfil Admin</Nav.Link>
+                </Nav>
+              </Container>
+              <Container> 
+                <button onClick={handleLogout}>Cerrar Sesión</button>
+              </Container>
+             
+              </Navbar>
+          </>
+
+          
+      </div>
+
+
+
+    )
+    }else if(isUserActive === true){
+
+    return (
+      <div>
+          <>
+           <Navbar bg="warning" variant="light" > 
            <Container>
                 <Navbar.Brand as={NavLink} to="/home">Inicio</Navbar.Brand>
                 <Nav className="me-auto">
