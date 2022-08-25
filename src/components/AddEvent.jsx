@@ -9,7 +9,7 @@ function AddEvent() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [address, setAddress] = useState("");
-  const [image, setImage] = useState("");
+ 
   const [price, setPrice] = useState();
   const [imageUrl, setImageUrl] = useState("");
 
@@ -20,7 +20,7 @@ function AddEvent() {
 
   const handleAddressChange = (event) => setAddress(event.target.value)
 
-  const handleImageChange = (event) => setImage(event.target.value)
+ 
 
   const handlePriceChange = (event) => setPrice(event.target.value)
 
@@ -52,7 +52,7 @@ function AddEvent() {
     const form = new FormData()
     form.append("image",event.target.files[0] )
     try{
-      const response = await uploadService()
+      const response = await uploadService(form)
       setImageUrl(response.data.imageUrl)
     }catch(error){
       navigate("/error")

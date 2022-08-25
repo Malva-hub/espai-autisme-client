@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import {editEventService} from "../services/event.services";
-
+import {uploadService} from "../services/upload.services";
 function EditEvent(props) {
 
     const {idEvent} = props
@@ -11,8 +11,9 @@ function EditEvent(props) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [address, setAddress] = useState("");
-    const [image, setImage] = useState("");
+
     const [price, setPrice] = useState();
+    const [imageUrl, setImageUrl] = useState("");
   
     const handleTitleChange = (event) => setTitle(event.target.value)
   
@@ -20,7 +21,7 @@ function EditEvent(props) {
   
     const handleAddressChange = (event) => setAddress(event.target.value)
   
-    const handleImageChange = (event) => setImage(event.target.value)
+   
   
     const handlePriceChange = (event) => setPrice(event.target.value)
   
@@ -31,7 +32,7 @@ function EditEvent(props) {
           title,
           description,
           address,
-          image,
+          image:imageUrl,
           price
         }
         try {
@@ -40,15 +41,27 @@ function EditEvent(props) {
           setTitle("");
           setDescription("");
           setAddress("")  
-          setImage("")
+        
           setPrice("")
           props.getAllEvents();
+          props.setThisEvent("")
         } catch (error) {
           navigate("/error");
         }
       };
 
-
+      const handleImgUpload = async (event) => {
+        console.log(event.target.files[0])
+    
+        const form = new FormData()
+        form.append("image",event.target.files[0] )
+        try{
+          const response = await uploadService(form)
+          setImageUrl(response.data.imageUrl)
+        }catch(error){
+          navigate("/error")
+        }
+      }
 
   return (
     <div>
@@ -75,14 +88,7 @@ function EditEvent(props) {
           onChange={handleAddressChange}
           value={address}
         />
-        {/* PENDIENTE PONER CLOUDINARY */}
-         <label htmlFor="image">Imagen:</label>
-        <input
-          type="text"
-          name="image"
-          onChange={handleImageChange}
-          value={image}
-        />
+      
             <label htmlFor="price">Precio:</label>
         <input
           type="number"
@@ -92,7 +98,16 @@ function EditEvent(props) {
         />
 
       </form>
+      <div>
+        <h5>Añadir Imagen</h5>
+        <input type="file" onChange={handleImgUpload}/>
+        <img src={imageUrl} alt="imagen"/>
+      </div>
       <button onClick={handleSubmit}>Modificar Evento</button>
+
+
+
+
     </div>
   )
 }

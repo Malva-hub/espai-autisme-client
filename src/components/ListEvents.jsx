@@ -12,7 +12,7 @@ function ListEvents() {
 
  const [isFetching, setIsFetching] = useState(true)
 
- const [isFormShowing, setIsFormShowing] = useState(false)
+ const [thisEvent, setThisEvent] = useState([])
 
 
  useEffect (() => {
@@ -47,9 +47,19 @@ const handleDeleteEvent = async (idEvent) => {
     }
 }
 
-const toggleFormShowing = () =>{
-  setIsFormShowing(!isFormShowing)
+
+
+const handleEditEvent = (idEvent) => {
+  if ( thisEvent !== idEvent) {
+    setThisEvent(idEvent)
+  }else if( thisEvent === idEvent) {
+    setThisEvent("")
+  }
+  
+
 }
+
+
 
   return (
     <div>
@@ -59,8 +69,8 @@ const toggleFormShowing = () =>{
          return (
             <li key={eachEvent._id}> 
                 {eachEvent.title} 
-                <button onClick={toggleFormShowing}>{isFormShowing === false ? "Editar Evento" : "Ocultar Formulario"} </button>
-                {isFormShowing === true ? <EditEvent idevent={eachEvent._id} getAllEvents={getAllEvents}/> : null }
+                <button onClick={() => handleEditEvent(eachEvent._id)}>{eachEvent._id === thisEvent  ? "Ocultar " : "Editar"}</button>
+                {eachEvent._id === thisEvent ? <EditEvent idEvent={eachEvent._id} getAllEvents={getAllEvents} setThisEvent={setThisEvent}/> : null }
                 
                 <button onClick={()=> handleDeleteEvent(eachEvent._id)}>Borrar</button>
 
