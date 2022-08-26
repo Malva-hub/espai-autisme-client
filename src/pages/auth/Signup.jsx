@@ -43,7 +43,7 @@ function Signup() {
         <h4 className="text-center mt-4 mb-4 color">Registrarse</h4>
 
         <Form onSubmit={handleSignup}>
-          <Form.Group className="mb-3" controlId="formGroupEmail">
+          <Form.Group className="mb-3" controlId="formGroupUsername">
             <Form.Label>Nombre:</Form.Label>
 
             <Form.Control
@@ -63,7 +63,7 @@ function Signup() {
               onChange={handleEmailChange}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formGroupEmail">
+          <Form.Group className="mb-3" controlId="formGroupPassword">
             <Form.Label>Contraseña:</Form.Label>
 
             <Form.Control

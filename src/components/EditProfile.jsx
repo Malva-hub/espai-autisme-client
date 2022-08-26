@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { editProfileService } from "../services/user.services";
 
+import Form from "react-bootstrap/Form";
+
 function EditProfile(props) {
   const navigate = useNavigate();
 
@@ -25,7 +27,7 @@ function EditProfile(props) {
       setEmail("");
       setUsername("");
       props.getMyProfile();
-      props.setIsFormShowing(false)
+      props.setIsFormShowing(false);
     } catch (error) {
       navigate("/error");
     }
@@ -33,23 +35,33 @@ function EditProfile(props) {
 
   return (
     <div>
-      <form>
-        <label htmlFor="username">Nombre:</label>
-        <input
-          type="text"
-          name="username"
-          onChange={handleUsernameChange}
-          value={username}
-        />
-        <label htmlFor="email">Email:</label>
-        <input
-          type="text"
-          name="email"
-          onChange={handleEmailChange}
-          value={email}
-        />
-      </form>
-      <button onClick={handleSubmit}>Modificar Perfil</button>
+      <div className="edit-profile">
+        <Form>
+          <Form.Group className="mb-3" controlId="formGroupUsername">
+            <Form.Label>Nombre:</Form.Label>
+
+            <Form.Control
+              type="text"
+              name="username"
+              onChange={handleUsernameChange}
+              value={username}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label>Email:</Form.Label>
+
+            <Form.Control
+              type="text"
+              name="email"
+              onChange={handleEmailChange}
+              value={email}
+            />
+          </Form.Group>
+        </Form>
+        <button className="button" onClick={handleSubmit}>
+          Modificar Perfil
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,106 +1,130 @@
-
-import {useEffect, useState, useContext} from "react";
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import EditProfile from "../../components/EditProfile";
+import ListGroup from "react-bootstrap/ListGroup";
 
-import {deleteProfileService, myProfileService} from "../../services/user.services";
+import {
+  deleteProfileService,
+  myProfileService,
+} from "../../services/user.services";
 
-import {AuthContext} from "../../context/auth.context"
+import { AuthContext } from "../../context/auth.context";
 import { listEventService } from "../../services/event.services";
 
-function Myprofile() {
+import Card from "react-bootstrap/Card";
 
-  const navigate = useNavigate()
+function Myprofile() {
+  const navigate = useNavigate();
 
   const { isUserActive } = useContext(AuthContext);
 
-  const [myProfile, setMyProfile] = useState([])
+  const [myProfile, setMyProfile] = useState([]);
 
-  const [myListEvents, setMyListEvents] = useState([])
+  const [myListEvents, setMyListEvents] = useState([]);
 
-  const [isFetching, setIsFetching] = useState(true)
+  const [isFetching, setIsFetching] = useState(true);
 
-  const [isFormShowing, setIsFormShowing] = useState(false)
+  const [isFormShowing, setIsFormShowing] = useState(false);
 
-  useEffect (() => {
-    getMyProfile()
-  },[])
-
- 
   useEffect(() => {
-    getMyEvents()
-  }, [])
+    getMyProfile();
+  }, []);
+
+  useEffect(() => {
+    getMyEvents();
+  }, []);
 
   const getMyProfile = async () => {
-    try{
-      const response = await myProfileService()
-      setMyProfile(response.data)
-      
-      setIsFetching(false)
-    }catch(error){
-      navigate("/error")
+    try {
+      const response = await myProfileService();
+      setMyProfile(response.data);
+
+      setIsFetching(false);
+    } catch (error) {
+      navigate("/error");
     }
-  }
+  };
 
   const getMyEvents = async () => {
-    try{
-      const response = await listEventService()
-      setMyListEvents(response.data)
-      
-      setIsFetching(false)
-    }catch(error){
-      navigate("/error")
+    try {
+      const response = await listEventService();
+      setMyListEvents(response.data);
+
+      setIsFetching(false);
+    } catch (error) {
+      navigate("/error");
     }
+  };
+
+  if (isFetching === true) {
+    return <h3>...Loading</h3>;
   }
 
-if(isFetching === true){
-  return <h3>...Loading</h3>
-}
+  const toggleFormShowing = () => {
+    setIsFormShowing(!isFormShowing);
+  };
 
-const toggleFormShowing = () =>{
-  setIsFormShowing(!isFormShowing)
-}
-
-const handleDelete = async () => {
-  try{
-    await deleteProfileService()
-    isUserActive(false)
-    navigate("/home")
-  }catch(error){
-    navigate("/error")
-  }
-
-}
-
-
+  const handleDelete = async () => {
+    try {
+      await deleteProfileService();
+      isUserActive(false);
+      navigate("/home");
+    } catch (error) {
+      navigate("/error");
+    }
+  };
 
   return (
-    <div >
-    
-    <h3 key={myProfile._id}>Mi Perfil</h3>
-      <p>Nombre: {myProfile.username} </p>
-      <p>Email: {myProfile.email}</p>
-    <button onClick={toggleFormShowing}>{isFormShowing === false ? "Editar Perfil" : "Ocultar Formulario"} </button>
-    {isFormShowing === true ? <EditProfile  setIsFormShowing={setIsFormShowing} getMyProfile={getMyProfile}/> : null }
+    <div className="d-center">
+      <Card className="mt-3" style={{ width: "40rem" }}>
+        <Card.Body>
+          <Card.Title className="color text-align">Mi perfil</Card.Title>
+          <Card.Text>Nombre: {myProfile.username}</Card.Text>
+          <Card.Text>Email: {myProfile.email}</Card.Text>
 
-    <button onClick={handleDelete}>Borrar Perfil</button>
+          <div className="gap-button-profile">
+          <div className="edit-prof-btn"> 
+            <button className="button" onClick={toggleFormShowing}>
+              {isFormShowing === false ? "Editar Perfil" : "Ocultar Formulario"}{" "}
+            </button>
+          
+          </div>
+          <div className="edit-prof-form">
+            {isFormShowing === true ? (
+              <EditProfile
+                setIsFormShowing={setIsFormShowing}
+                getMyProfile={getMyProfile}
+              />
+            ) : null}
+          </div>
+            
 
-    
-    <h4>Eventos a los que voy a asistir</h4>
-    {myListEvents.map((eachList) => {
-      return ( 
-        <li key={eachList._id}> 
-          {eachList.title}
-        </li>
-      )  
-      
-     
-    })}
-
-
+           
+          </div>
+        </Card.Body>
+      </Card>
+      <br/>
+      <button className="button" onClick={handleDelete}>
+              Borrar Perfil
+            </button>
+      <br />
+      <Card className="mt-3" style={{ width: "40rem" }}>
+        <Card.Title className="color text-align">
+          Eventos a los que voy a asistir
+        </Card.Title>
+        <ListGroup variant="flush">
+          {myListEvents.map((eachList) => {
+            return (
+              <ListGroup.Item key={eachList._id}>
+                {" "}
+                 {eachList.title}
+              </ListGroup.Item>
+            );
+          })}
+        </ListGroup>
+      </Card>
     </div>
-    
-  )
+  );
 }
 
-export default Myprofile
+export default Myprofile;

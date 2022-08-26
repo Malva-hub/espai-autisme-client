@@ -69,6 +69,12 @@
   margin-top: 10em;
 }
 
+.edit-profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .button1 {
   font-size: 15px;
   border-radius: 6px;
@@ -128,4 +134,31 @@
 
 .align-left {
   text-align: left;
+}
+
+.gap-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.gap-button-profile{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.edit-prof-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-prof-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
