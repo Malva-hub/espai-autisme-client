@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signupService } from "../../services/auth.services";
 
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+
 function Signup() {
   const navigate = useNavigate();
 
@@ -36,10 +39,12 @@ function Signup() {
   };
 
   return (
-    <div>
+    <div >
+    
       <h1>Sign Up</h1>
 
-      <form onSubmit={handleSignup}>
+      <Form onSubmit={handleSignup}>
+        <Form.Group className="mb-3" controlId="formGroupEmail">
         <label>Nombre:</label>
         <input
           type="text"
@@ -47,7 +52,7 @@ function Signup() {
           value={username}
           onChange={handleUsernameChange}
         />
-        <br />
+        </Form.Group>
         <label>Email:</label>
         <input
           type="email"
@@ -68,7 +73,8 @@ function Signup() {
         {errorMessage ? <p>{errorMessage}</p> : null}
         <br />
         <button type="submit">Signup</button>
-      </form>
+      </Form>
+   
     </div>
   );
 }

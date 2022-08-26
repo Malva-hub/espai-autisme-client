@@ -6,6 +6,11 @@ import { useNavigate } from 'react-router-dom';
 import {addAttendeesService, eventService} from "../../services/event.services";
 import ViewComment from '../../components/ViewComment';
 
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Col from 'react-bootstrap/Col';
+
 
 
 function Events() {
@@ -51,33 +56,51 @@ const handleAddAtendees = async (idEvent) => {
 }
 
   return (
-    <div> 
+    <div style={{width: 600} }> 
       <h1>Listado de Eventos</h1>
        {allEvents.map((eachEvent) => {
          
          return (
            <React.Fragment key={eachEvent._id}>         
             
-           <Accordion defaultActiveKey="0">
-            <Accordion.Item eventKey="0">
+           <Accordion style={{width: "50rem"}}>
+            <Accordion.Item >
               <Accordion.Header>{eachEvent.title}</Accordion.Header>
               <Accordion.Body>
-                <img src={eachEvent.image} alt="image1" />
-                <p>{eachEvent.description}</p>
-                <p>Lugar: {eachEvent.address}</p>
-                <p>{eachEvent.price} €</p>
-                <h3>Personas que van a asistir</h3>
+                <Col> 
+                <Card >
+                <Card.Img variant="top" src={eachEvent.image} />
+
+                <Card.Body>
+                <Card.Title>{eachEvent.title}</Card.Title>
+                <Card.Text>{eachEvent.description}</Card.Text>
+                <Card.Text>Lugar: {eachEvent.address}</Card.Text>
+                <Card.Text>Precio: {eachEvent.price} €</Card.Text>
+                  <Button variant="primary" onClick={() => handleAddAtendees(eachEvent._id)}>Apuntarme</Button>
+                 </Card.Body>
+                 </Card>
+                 </Col>
+                 <Col> 
+                 <Card mb-3 style={{width: "30rem"}}>
+
+                 <ListGroup variant="flush">
+                  <h4>Personas que van a asistir</h4>
+                
                 {eachEvent.attendees.map((eachAttenddees) => {
                   return (
-                    <li key={eachAttenddees._id}>
-                        {eachAttenddees.username}
-                    </li>
+                    
+                    <ListGroup.Item key={eachAttenddees._id}>{eachAttenddees.username}</ListGroup.Item> 
+                    
                   )
                 })}
-                <button onClick={() => handleAddAtendees(eachEvent._id)}>Apuntarme</button>
+                </ListGroup>
                 
-                <p>Comentarios</p>
+                <ListGroup variant="flush">
+                <h4>Comentarios</h4>
                 <ViewComment idevent={eachEvent._id}/>
+                </ListGroup>
+                </Card>
+                </Col>
               </Accordion.Body>
             </Accordion.Item>
             </Accordion> 
