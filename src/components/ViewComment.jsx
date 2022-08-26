@@ -3,6 +3,9 @@ import { commentEventService } from "../services/comment.services";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import ListGroup from "react-bootstrap/ListGroup";
+import Card from "react-bootstrap/Card";
+
 function ViewComment(props) {
   const { idevent } = props;
 
@@ -29,17 +32,23 @@ function ViewComment(props) {
   }
 
   return (
-    <div >
+    <div className="d-center">
+      <Card className="mt-3" style={{ width: "50rem" }}>
+       
+        <ListGroup variant="flush">
+
       {allComments.map((eachComment) => {
         return (
-          <div key={eachComment._id}>
+          <ListGroup.Item key={eachComment._id}>
             {eachComment.content}
           
-          </div>
+            </ListGroup.Item>
           
         );
       })}
       <AddComment idevent={idevent} getAllComments={getAllComments}/>
+      </ListGroup>
+      </Card>
     </div>
   );
 }
