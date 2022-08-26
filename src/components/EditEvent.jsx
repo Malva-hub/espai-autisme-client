@@ -113,11 +113,11 @@ function EditEvent(props) {
           </Form.Group>
         </Form>
         <div>
-          <Form.Group className="mb-3" controlId="formGroupPrice">
+          <Form.Group className="mb-3" controlId="formGroupImage">
             <Form.Label>Añadir Imagen</Form.Label>
 
             <Form.Control type="file" onChange={handleImgUpload} />
-            <img src={imageUrl} alt="imagen" />
+            <img src={imageUrl} alt="imagen"/>
           </Form.Group>
         </div>
         <button  className="button" onClick={handleSubmit}>Modificar Evento</button>

@@ -44,7 +44,7 @@ function Signup() {
 
         <Form onSubmit={handleSignup}>
           <Form.Group className="mb-3" controlId="formGroupUsername">
-            <Form.Label>Nombre:</Form.Label>
+            <Form.Label>Nombre</Form.Label>
 
             <Form.Control
               type="text"
@@ -54,7 +54,7 @@ function Signup() {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formGroupEmail">
-            <Form.Label>Email:</Form.Label>
+            <Form.Label>Email</Form.Label>
 
             <Form.Control
               type="email"
@@ -64,7 +64,7 @@ function Signup() {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formGroupPassword">
-            <Form.Label>Contraseña:</Form.Label>
+            <Form.Label>Contraseña</Form.Label>
 
             <Form.Control
               type="password"

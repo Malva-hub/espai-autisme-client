@@ -111,7 +111,7 @@ function AddEvent() {
             </Form.Group>
           </Form>
           <div>
-            <Form.Group className="mb-3" controlId="formGroupPrice">
+            <Form.Group className="mb-3" controlId="formGroupImage">
               <Form.Label>Añadir Imagen</Form.Label>
 
               <Form.Control type="file" onChange={handleImgUpload} />
