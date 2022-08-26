@@ -4,8 +4,6 @@ import { loginService } from "../../services/auth.services";
 import { AuthContext } from "../../context/auth.context";
 
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Card from 'react-bootstrap/Card';
 
 function Login() {
   const { authenticateUser } = useContext(AuthContext);
@@ -43,47 +41,41 @@ function Login() {
   };
 
   return (
-    <div className="login-page">
-      
-      <h4 className="text-center mt-4 mb-4 color" >Acceder</h4>
-     
-      <Form onSubmit={handleLogin}>
-        <Form.Group className="mb-3"  controlId="formGroupEmail">
-        
-          
-          <Form.Control
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleEmailChange}
-            placeholder="email"
-          />
-        </Form.Group>
+    <div className="login">
+      <div className="login-page">
+        <h4 className="text-center mt-4 mb-4 color">Acceder</h4>
 
-        <Form.Group className="mb-3" controlId="formGroupPassword">
-          
-          <Form.Control
-            type="password"
-            name="password"
-            value={password}
-            onChange={handlePasswordChange}
-            placeholder="contraseña"
-          />
-        </Form.Group>
-        {errorMessage ? <p>{errorMessage}</p> : null}
-        <br />
-        <div className=" d-flex-center"> 
-          <Button className="button" variant="warning" type="submit">        
-          Entrar
-        </Button>
-        </div>
-      </Form>
-   
+        <Form onSubmit={handleLogin}>
+          <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Control
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmailChange}
+              placeholder="email"
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formGroupPassword">
+            <Form.Control
+              type="password"
+              name="password"
+              value={password}
+              onChange={handlePasswordChange}
+              placeholder="contraseña"
+            />
+          </Form.Group>
+          {errorMessage ? <p>{errorMessage}</p> : null}
+          <br />
+          <div className=" d-flex-center">
+            <button className="button" variant="warning" type="submit">
+              Entrar
+            </button>
+          </div>
+        </Form>
+      </div>
     </div>
-
-   
   );
 }
 
 export default Login;
-

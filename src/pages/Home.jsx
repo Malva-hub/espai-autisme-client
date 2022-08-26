@@ -25,18 +25,17 @@ function Home() {
       <div className="home" >
         <Carousel activeIndex={index} onSelect={handleSelect}>
           <Carousel.Item>
-            <img className="img-carousel" src={image1} alt="First slide" />
+            <img className="img-carousel" src={image2} alt="First slide" />
             <Carousel.Caption>
-              <h3>Día de la presentación</h3>
+              <h3>Fiesta de las Familias Diversas</h3>
               <p>
-                Este día fue muy especial para nosotras ya que presentamos
-                nuestra asociación
+                Este día fue muy especial para nosotras
               </p>
             </Carousel.Caption>
           </Carousel.Item>
 
           <Carousel.Item>
-            <img className="img-carousel" src={image2} alt="Second slide" />
+            <img className="img-carousel" src={image1} alt="Second slide" />
 
             <Carousel.Caption>
               <h3>Presentación de la Asociación</h3>

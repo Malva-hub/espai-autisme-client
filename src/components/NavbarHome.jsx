@@ -35,7 +35,7 @@ function NavbarHome() {
                   <Nav.Link className="color-navbar" as={NavLink} to="/admin">Perfil Admin</Nav.Link>
                 </Nav>
               </Container>
-              <Container className='d-flex end-0'> 
+              <Container className='position-end'> 
                 <button className="button1" onClick={handleLogout}>Cerrar Sesión</button>
               </Container>
              
@@ -64,7 +64,7 @@ function NavbarHome() {
                   <Nav.Link className="color-navbar" as={NavLink} to="/myprofile">Mi perfil</Nav.Link>
                 </Nav>
               </Container>
-              <Container className='d-flex end-0'> 
+              <Container className='position-end'> 
                 <button onClick={handleLogout} className="button1">Cerrar Sesión</button>
               </Container>
              
@@ -82,6 +82,7 @@ function NavbarHome() {
       return (
           <div  className="navbar">
             <Navbar >
+           
             <Container>
                 <Navbar.Brand as={NavLink} to="/home">Inicio</Navbar.Brand>
                 <Nav className="me-auto">
@@ -91,10 +92,16 @@ function NavbarHome() {
                   <Nav.Link className="color-navbar" as={NavLink} to="/usservices">Nuestros Servicios</Nav.Link>
                 </Nav>
               </Container>
-              <Container className='d-flex end-0'>
-                  <Nav.Link className="position-end"  as={NavLink} to="/login">Acceder</Nav.Link>
-                  <Nav.Link className="position-end" as={NavLink} to="/signup">Registrarse</Nav.Link>
+            
+            
+             
+
+              
+              <Container >
+                  <Nav.Link  as={NavLink} to="/login">Acceder</Nav.Link>
+                  <Nav.Link  as={NavLink} to="/signup">Registrarse</Nav.Link>
               </Container>
+             
             </Navbar>
           </div>
         );

@@ -1,11 +1,9 @@
 .App {
-   
-text-align: center;
-align-items: center;
+  text-align: center;
+  align-items: center;
 }
 
-.home{
- 
+.home {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -16,11 +14,12 @@ align-items: center;
   align-items: center;
 }
 
-.bg-home{
+.bg-home {
   width: 20%;
 }
 
-@media (min-width: 576px) { }
+@media (min-width: 576px) {
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -28,80 +27,105 @@ align-items: center;
   }
 }
 
-.color{
-  color:#D98434;
+.color {
+  color: #d98434;
 }
 
-.color-navbar{
-  color:white;
+.text-align {
+  text-align: center;
+}
+
+.text-line {
+  line-height: 1.7;
+}
+.color-navbar {
+  color: white;
 }
 
 .navbar {
-  background-color: #D98434;
-  color:white;
+  background-color: #d98434;
+  color: white;
   width: 100%;
 }
 
-.button{
+.button {
   font-size: 15px;
   border-radius: 6px;
   box-shadow: 1px;
   text-shadow: 1px;
-  background-color: #D98434;
-  border-color:#D98434;
-  color:white;
+  background-color: #d98434;
+  border-color: #d98434;
+  color: white;
 }
+/* .login {
+  background-color: #f0be90;
+  margin: 0;
+} */
 
-.login-page{
+.login-page {
   display: flex;
   flex-direction: column;
-  
   align-items: center;
   margin-top: 10em;
 }
 
-
-.button1{
+.button1 {
   font-size: 15px;
   border-radius: 6px;
   box-shadow: 1px;
   text-shadow: 1px;
   background-color: #f7f5f3;
   border-color: #f7f5f3;
-  color:#D98434;
-
-
-
+  color: #d98434;
 }
 
-
-.position-navbar{
+.position-navbar {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.position-end{
+.position-end {
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
+ 
+
 }
 
-.end{
+.position-end-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.end {
   display: flex;
   justify-items: end;
 }
 
-.img-carousel{
-  width:100%;
+.img-carousel {
+  width: 100%;
   display: flex;
   align-content: center;
   align-items: center;
 }
 
-.bg-img{
+.bg-img {
   display: flex;
   align-items: flex-start;
   margin-top: 2em;
   margin-right: 2em;
+}
+
+.d-center {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.align-left {
+  text-align: left;
 }

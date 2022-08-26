@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { signupService } from "../../services/auth.services";
 
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 
 function Signup() {
   const navigate = useNavigate();
@@ -39,42 +38,51 @@ function Signup() {
   };
 
   return (
-    <div >
-    
-      <h1>Sign Up</h1>
+    <div className="login">
+      <div className="login-page">
+        <h4 className="text-center mt-4 mb-4 color">Registrarse</h4>
 
-      <Form onSubmit={handleSignup}>
-        <Form.Group className="mb-3" controlId="formGroupEmail">
-        <label>Nombre:</label>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={handleUsernameChange}
-        />
-        </Form.Group>
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleEmailChange}
-        />
-        <br />
-        <label>Contraseña:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-        <br />
+        <Form onSubmit={handleSignup}>
+          <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label>Nombre:</Form.Label>
 
-        {errorMessage ? <p>{errorMessage}</p> : null}
-        <br />
-        <button type="submit">Signup</button>
-      </Form>
-   
+            <Form.Control
+              type="text"
+              name="username"
+              value={username}
+              onChange={handleUsernameChange}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label>Email:</Form.Label>
+
+            <Form.Control
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmailChange}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label>Contraseña:</Form.Label>
+
+            <Form.Control
+              type="password"
+              name="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </Form.Group>
+
+          {errorMessage ? <p>{errorMessage}</p> : null}
+          <br />
+          <div className=" d-flex-center">
+            <button className="button" variant="warning" type="submit">
+              Aceptar
+            </button>
+          </div>
+        </Form>
+      </div>
     </div>
   );
 }
