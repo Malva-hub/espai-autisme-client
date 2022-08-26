@@ -69,10 +69,38 @@
   margin-top: 10em;
 }
 
+.add-event-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5em;
+}
+
+.add-event-page1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+} 
+
 .edit-profile{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.edit-list-event{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-list-event1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .button1 {
@@ -162,3 +190,5 @@
   justify-content: center;
   align-items: center;
 }
+
+

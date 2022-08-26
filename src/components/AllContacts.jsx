@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { oneContactsService } from "../services/contact.services";
 
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
+
 function AllContacts() {
   const navigate = useNavigate();
 
@@ -19,7 +22,7 @@ function AllContacts() {
     try {
       const response = await allContactsService();
       const dataContact = response.data;
-      
+
       let arrContactFalse = [];
       let arrContactTrue = [];
       for (let i = 0; i < dataContact.length; i++)
@@ -30,9 +33,9 @@ function AllContacts() {
         }
 
       setAllContactsFalse(arrContactFalse);
-    
+
       setAllContactsTrue(arrContactTrue);
-     
+
       setIsFetching(false);
     } catch (error) {
       navigate("/error");
@@ -46,29 +49,50 @@ function AllContacts() {
   const handleAddContact = async (contactId) => {
     try {
       await oneContactsService(contactId);
-      getAllContacts()
+      getAllContacts();
     } catch (error) {
       navigate("/error");
     }
   };
 
   return (
-    <div>
-      <h3>Personas pendiente de ser socios</h3>
-      {allContactsFalse.map((eachContact) => {
-        return (
-          <div key={eachContact._id}>
-            {eachContact.username}
-            <button onClick={() => handleAddContact(eachContact._id)}>
-              Añadir como socio
-            </button>
-          </div>
-        );
-      })}
-      <h3>Personas que son socios</h3>
-      {allContactsTrue.map((eachContact) => {
-        return <div key={eachContact._id}>{eachContact.username}</div>;
-      })}
+    <div className="d-center">
+      <Card className="mt-3" style={{ width: "40rem" }}>
+        <Card.Title className="color text-align">
+          Personas pendiente de ser socios
+        </Card.Title>
+        <ListGroup variant="flush">
+          {allContactsFalse.map((eachContact) => {
+            return (
+              <ListGroup.Item key={eachContact._id}>
+                {" "}
+                {eachContact.username}{" "}
+                <button
+                  className="button"
+                  onClick={() => handleAddContact(eachContact._id)}
+                >
+                  Añadir como socio
+                </button>
+              </ListGroup.Item>
+            );
+          })}
+        </ListGroup>
+      </Card>
+      <br />
+      <Card className="mt-3" style={{ width: "40rem" }}>
+        <Card.Title className="color text-align">
+          Personas que son socios
+        </Card.Title>
+        <ListGroup variant="flush">
+          {allContactsTrue.map((eachContact) => {
+            return (
+              <ListGroup.Item key={eachContact._id}>
+                {eachContact.username}
+              </ListGroup.Item>
+            );
+          })}
+        </ListGroup>
+      </Card>
     </div>
   );
 }
