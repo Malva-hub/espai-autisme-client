@@ -23,7 +23,7 @@ function ListEvents() {
     try {
       const response = await eventService();
       setAllEvents(response.data);
-      console.log(response.data);
+
       setIsFetching(false);
     } catch (error) {
       navigate("/error");
@@ -63,32 +63,34 @@ function ListEvents() {
               <ListGroup.Item key={eachEvent._id}>
                 {eachEvent.title}{" "}
                 <div className="gap-button-profile">
-                  <div className="edit-list-event"> 
-                    <div className="edit-list-event1" > 
-                      <button 
-                      className="button"
-                      onClick={() => handleEditEvent(eachEvent._id)}
-                    >
-                      {eachEvent._id === thisEvent ? "Ocultar " : "Editar"}
-                    </button>
+                  <div className="edit-list-event">
+                    <div className="edit-list-event1">
+                      <button
+                        className="button"
+                        onClick={() => handleEditEvent(eachEvent._id)}
+                      >
+                        {eachEvent._id === thisEvent ? "Ocultar " : "Editar"}
+                      </button>
                     </div>
-                    <div className="edit-list-event"> 
-
-                    {eachEvent._id === thisEvent ? (
-                      <EditEvent
-                        idEvent={eachEvent._id}
-                        getAllEvents={getAllEvents}
-                        setThisEvent={setThisEvent}
-                      />
-                    ) : null}
+                    <div className="edit-list-event">
+                      {eachEvent._id === thisEvent ? (
+                        <EditEvent
+                          idEvent={eachEvent._id}
+                          getAllEvents={getAllEvents}
+                          setThisEvent={setThisEvent}
+                        />
+                      ) : null}
                     </div>
                   </div>
-                <div className="edit-prof-form">
-                    <button className="button" onClick={() => handleDeleteEvent(eachEvent._id)}>
-                  Borrar
-                </button>
+                  <div className="edit-prof-form">
+                    <button
+                      className="button"
+                      onClick={() => handleDeleteEvent(eachEvent._id)}
+                    >
+                      Borrar
+                    </button>
+                  </div>
                 </div>
-               </div>
               </ListGroup.Item>
             );
           })}

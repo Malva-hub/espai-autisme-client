@@ -81,22 +81,22 @@
   flex-direction: column;
   align-items: center;
   margin-top: 2em;
-} 
+}
 
-.edit-profile{
+.edit-profile {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.edit-list-event{
+.edit-list-event {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.edit-list-event1{
+.edit-list-event1 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,11 +123,9 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
- 
-
 }
 
-.position-end-row{
+.position-end-row {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -164,14 +162,14 @@
   text-align: left;
 }
 
-.gap-button{
+.gap-button {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1em;
 }
 
-.gap-button-profile{
+.gap-button-profile {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -179,20 +177,18 @@
   gap: 1em;
 }
 
-.edit-prof-btn{
+.edit-prof-btn {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.edit-prof-form{
+.edit-prof-form {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.d-center-events{
+.d-center-events {
   margin-left: 100;
 }
-
-

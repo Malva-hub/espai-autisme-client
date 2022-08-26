@@ -27,8 +27,6 @@ function Signup() {
       await signupService(user);
       navigate("/login");
     } catch (error) {
-      console.log(error.response.status);
-      console.log(error.response.data.errorMessage);
       if (error.response.status === 400) {
         setErrorMessage(error.response.data.errorMessage);
       } else {

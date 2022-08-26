@@ -34,20 +34,16 @@ function ViewComment(props) {
   return (
     <div className="d-center">
       <Card className="mt-3" style={{ width: "50rem" }}>
-       
         <ListGroup variant="flush">
-
-      {allComments.map((eachComment) => {
-        return (
-          <ListGroup.Item key={eachComment._id}>
-            {eachComment.content}
-          
-            </ListGroup.Item>
-          
-        );
-      })}
-      <AddComment idevent={idevent} getAllComments={getAllComments}/>
-      </ListGroup>
+          {allComments.map((eachComment) => {
+            return (
+              <ListGroup.Item key={eachComment._id}>
+                {eachComment.content}
+              </ListGroup.Item>
+            );
+          })}
+          <AddComment idevent={idevent} getAllComments={getAllComments} />
+        </ListGroup>
       </Card>
     </div>
   );

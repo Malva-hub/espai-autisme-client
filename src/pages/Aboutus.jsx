@@ -1,6 +1,5 @@
 import aboutus from "../assets/aboutus.png";
 
-
 import Card from "react-bootstrap/Card";
 
 function Aboutus() {
@@ -21,15 +20,16 @@ function Aboutus() {
             delante. Porque no olvidemos que los peques con autismo se
             convertirán en jóvenes y adultos a los que hay que seguir apoyando
             en sus diferentes desafíos a lo largo de su vida. Detrás de estos
-            colores nos encontramos <b>Adriana, María, Paula, Judith e Irene </b>. Juntas
-            desde la asociación queremos luchar por los derechos de las personas
-            con autismo,dar cobertura a las diferentes situaciones que
-            actualmente cojean en el ámbito educativo,social,sanitario…
-            Atenderemos vuestras dudas y peticiones y se las haremos llegar a
-            las instituciones correspondientes para empezar a cambiar las
-            piedras que nos toca sortear por el camino. En definitiva queremos
-            cambiar la mirada a esta condición que a los ojos de los demás es
-            invisible. <b>Recordad, no estáis sol@s, junt@s somos más fuertes. </b>
+            colores nos encontramos{" "}
+            <b>Adriana, María, Paula, Judith e Irene </b>. Juntas desde la
+            asociación queremos luchar por los derechos de las personas con
+            autismo,dar cobertura a las diferentes situaciones que actualmente
+            cojean en el ámbito educativo,social,sanitario… Atenderemos vuestras
+            dudas y peticiones y se las haremos llegar a las instituciones
+            correspondientes para empezar a cambiar las piedras que nos toca
+            sortear por el camino. En definitiva queremos cambiar la mirada a
+            esta condición que a los ojos de los demás es invisible.{" "}
+            <b>Recordad, no estáis sol@s, junt@s somos más fuertes. </b>
           </Card.Text>
         </Card.Body>
       </Card>

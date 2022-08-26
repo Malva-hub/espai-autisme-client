@@ -23,7 +23,7 @@ function ListComments() {
     try {
       const response = await allCommentService();
       setAllComments(response.data);
-      console.log(response.data);
+
       setIsFetching(false);
     } catch (error) {
       navigate("/error");
@@ -54,8 +54,7 @@ function ListComments() {
             return (
               <ListGroup.Item key={eachComment._id}>
                 {" "}
-                {eachComment.content}
-                {" "}
+                {eachComment.content}{" "}
                 <button
                   className="button"
                   onClick={() => handleDeleteComment(eachComment._id)}

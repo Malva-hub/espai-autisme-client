@@ -23,7 +23,7 @@ function EditProfile(props) {
 
     try {
       const response = await editProfileService(user);
-      console.log(response.data);
+
       setEmail("");
       setUsername("");
       props.getMyProfile();

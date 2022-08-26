@@ -5,7 +5,6 @@ import { uploadService } from "../services/upload.services";
 
 import Form from "react-bootstrap/Form";
 
-
 function AddEvent() {
   const navigate = useNavigate();
 
@@ -37,7 +36,6 @@ function AddEvent() {
 
     try {
       const response = await addEventService(newEvent);
-      console.log(response.data);
 
       navigate("/events");
     } catch (error) {
@@ -46,8 +44,6 @@ function AddEvent() {
   };
 
   const handleImgUpload = async (event) => {
-    console.log(event.target.files[0]);
-
     const form = new FormData();
     form.append("image", event.target.files[0]);
     try {
@@ -61,75 +57,68 @@ function AddEvent() {
   return (
     <div className="d-center">
       <div className="add-event-page1">
-       
-       
-            <h4 className="text-center mt-4 mb-4 color">Añadir Evento</h4>
+        <h4 className="text-center mt-4 mb-4 color">Añadir Evento</h4>
 
-          <Form style={{ width: "50rem" }}>
-            <Form.Group className="mb-3 " controlId="formGroupTitle">
-              <Form.Label>Nombre</Form.Label>
+        <Form style={{ width: "50rem" }}>
+          <Form.Group className="mb-3 " controlId="formGroupTitle">
+            <Form.Label>Nombre</Form.Label>
 
-              <Form.Control
-                type="text"
-                name="title"
-                onChange={handleTitleChange}
-                value={title}
-              />
-            </Form.Group>
+            <Form.Control
+              type="text"
+              name="title"
+              onChange={handleTitleChange}
+              value={title}
+            />
+          </Form.Group>
 
-            <Form.Group className="mb-3 " controlId="formGroupDescription">
-              <Form.Label>Descripción</Form.Label>
+          <Form.Group className="mb-3 " controlId="formGroupDescription">
+            <Form.Label>Descripción</Form.Label>
 
-              <Form.Control
-                type="text"
-                name="description"
-                onChange={handleDescriptionChange}
-                value={description}
-              />
-            </Form.Group>
+            <Form.Control
+              type="text"
+              name="description"
+              onChange={handleDescriptionChange}
+              value={description}
+            />
+          </Form.Group>
 
-            <Form.Group className="mb-3 " controlId="formGroupAddress">
-              <Form.Label>Dirección</Form.Label>
+          <Form.Group className="mb-3 " controlId="formGroupAddress">
+            <Form.Label>Dirección</Form.Label>
 
-              <Form.Control
-                type="text"
-                name="address"
-                onChange={handleAddressChange}
-                value={address}
-              />
-            </Form.Group>
+            <Form.Control
+              type="text"
+              name="address"
+              onChange={handleAddressChange}
+              value={address}
+            />
+          </Form.Group>
 
-            <Form.Group className="mb-3 " controlId="formGroupPrice">
-              <Form.Label>Precio:</Form.Label>
+          <Form.Group className="mb-3 " controlId="formGroupPrice">
+            <Form.Label>Precio:</Form.Label>
 
-              <Form.Control
-                type="number"
-                name="price"
-                onChange={handlePriceChange}
-                value={price}
-              />
-            </Form.Group>
-          </Form>
-          <div>
-            <Form.Group className="mb-3" controlId="formGroupImage">
-              <Form.Label>Añadir Imagen</Form.Label>
+            <Form.Control
+              type="number"
+              name="price"
+              onChange={handlePriceChange}
+              value={price}
+            />
+          </Form.Group>
+        </Form>
+        <div>
+          <Form.Group className="mb-3" controlId="formGroupImage">
+            <Form.Label>Añadir Imagen</Form.Label>
 
-              <Form.Control type="file" onChange={handleImgUpload} />
+            <Form.Control type="file" onChange={handleImgUpload} />
 
-              <img src={imageUrl} alt="imagen" />
-            </Form.Group>
-          </div>
-
-
+            <img src={imageUrl} alt="imagen" />
+          </Form.Group>
         </div>
-         
-        
-          <button className="button" onClick={handleSubmit}>
-            Añadir Evento
-          </button>
-        
       </div>
-   
+
+      <button className="button" onClick={handleSubmit}>
+        Añadir Evento
+      </button>
+    </div>
   );
 }
 

@@ -18,19 +18,17 @@ function Home() {
   };
 
   return (
-    <div >
+    <div>
       <div className="bg-img">
         <img src={bg} alt="bg" className="bg-home" />
       </div>
-      <div className="home" >
+      <div className="home">
         <Carousel activeIndex={index} onSelect={handleSelect}>
           <Carousel.Item>
             <img className="img-carousel" src={image2} alt="First slide" />
             <Carousel.Caption>
               <h3>Fiesta de las Familias Diversas</h3>
-              <p>
-                Este día fue muy especial para nosotras
-              </p>
+              <p>Este día fue muy especial para nosotras</p>
             </Carousel.Caption>
           </Carousel.Item>
 

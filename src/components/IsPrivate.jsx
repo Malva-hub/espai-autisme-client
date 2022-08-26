@@ -5,8 +5,7 @@ import { Navigate } from "react-router-dom";
 function IsPrivate(props) {
   const { isUserActive } = useContext(AuthContext);
 
-
-  if (isUserActive === true ) {
+  if (isUserActive === true) {
     return props.children;
   } else {
     return <Navigate to="/login" />;

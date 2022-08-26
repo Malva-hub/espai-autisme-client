@@ -37,7 +37,7 @@ function EditEvent(props) {
     };
     try {
       const response = await editEventService(idEvent, eventEdit);
-      console.log(response.data);
+
       setTitle("");
       setDescription("");
       setAddress("");
@@ -51,8 +51,6 @@ function EditEvent(props) {
   };
 
   const handleImgUpload = async (event) => {
-    console.log(event.target.files[0]);
-
     const form = new FormData();
     form.append("image", event.target.files[0]);
     try {
@@ -117,10 +115,12 @@ function EditEvent(props) {
             <Form.Label>Añadir Imagen</Form.Label>
 
             <Form.Control type="file" onChange={handleImgUpload} />
-            <img src={imageUrl} alt="imagen"/>
+            <img src={imageUrl} alt="imagen" />
           </Form.Group>
         </div>
-        <button  className="button" onClick={handleSubmit}>Modificar Evento</button>
+        <button className="button" onClick={handleSubmit}>
+          Modificar Evento
+        </button>
       </div>
     </div>
   );

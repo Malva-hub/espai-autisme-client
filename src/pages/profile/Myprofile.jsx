@@ -83,30 +83,28 @@ function Myprofile() {
           <Card.Text>Email: {myProfile.email}</Card.Text>
 
           <div className="gap-button-profile">
-          <div className="edit-prof-btn"> 
-            <button className="button" onClick={toggleFormShowing}>
-              {isFormShowing === false ? "Editar Perfil" : "Ocultar Formulario"}{" "}
-            </button>
-          
-          </div>
-          <div className="edit-prof-form">
-            {isFormShowing === true ? (
-              <EditProfile
-                setIsFormShowing={setIsFormShowing}
-                getMyProfile={getMyProfile}
-              />
-            ) : null}
-          </div>
-            
-
-           
+            <div className="edit-prof-btn">
+              <button className="button" onClick={toggleFormShowing}>
+                {isFormShowing === false
+                  ? "Editar Perfil"
+                  : "Ocultar Formulario"}{" "}
+              </button>
+            </div>
+            <div className="edit-prof-form">
+              {isFormShowing === true ? (
+                <EditProfile
+                  setIsFormShowing={setIsFormShowing}
+                  getMyProfile={getMyProfile}
+                />
+              ) : null}
+            </div>
           </div>
         </Card.Body>
       </Card>
-      <br/>
+      <br />
       <button className="button" onClick={handleDelete}>
-              Borrar Perfil
-            </button>
+        Borrar Perfil
+      </button>
       <br />
       <Card className="mt-3" style={{ width: "40rem" }}>
         <Card.Title className="color text-align">
@@ -117,7 +115,7 @@ function Myprofile() {
             return (
               <ListGroup.Item key={eachList._id}>
                 {" "}
-                 {eachList.title}
+                {eachList.title}
               </ListGroup.Item>
             );
           })}
